@@ -7,14 +7,10 @@ namespace AwesomeSpa.Models
     {
         public long Id { get; set; }
 
-        [Required]
-        [MaxLength(250)]
-        // TODO: This should also be unique.
         public string Title { get; set; }
 
         public bool Done { get; set; }
 
-        // TODO: This is required, if Done is true
         public DateTime? Completed { get; set; }
 
         public override string ToString()

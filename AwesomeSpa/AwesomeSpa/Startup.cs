@@ -1,5 +1,6 @@
 ﻿using AwesomeSpa.Data;
 using AwesomeSpa.Services;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,8 @@ namespace AwesomeSpa
             services.AddScoped<ITodoItemService, TodoItemService>();
 
             services
-                .AddControllersWithViews();
+                .AddControllersWithViews()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

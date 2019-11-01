@@ -193,9 +193,6 @@
       "TodoItem": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "title"
-        ],
         "properties": {
           "id": {
             "type": "integer",
@@ -203,8 +200,7 @@
           },
           "title": {
             "type": "string",
-            "maxLength": 250,
-            "minLength": 1
+            "nullable": true
           },
           "done": {
             "type": "boolean"

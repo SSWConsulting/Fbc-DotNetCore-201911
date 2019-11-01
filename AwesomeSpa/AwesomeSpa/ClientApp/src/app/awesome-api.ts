@@ -354,7 +354,7 @@ export class WeatherForecastClient implements IWeatherForecastClient {
 
 export interface TodoItem {
     id?: number;
-    title: string;
+    title?: string | undefined;
     done?: boolean;
     completed?: Date | undefined;
 }
