@@ -32,6 +32,11 @@ namespace AwesomeSpa
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.AddOpenApiDocument(configure =>
+            {
+                configure.Title = "Awesome SPA API";
+            });
+
             services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
         }
@@ -56,6 +61,12 @@ namespace AwesomeSpa
             {
                 app.UseSpaStaticFiles();
             }
+
+            app.UseSwaggerUi3(settings =>
+            {
+                settings.Path = "/api";
+                settings.DocumentPath = "/api/specification.json";
+            });
 
             app.UseRouting();
 
